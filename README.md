@@ -30,6 +30,8 @@ Um grande diferencial do projeto é a integração com Spring AI, que permite ao
 
 https://youtu.be/0BF4E6JazVA
 
+(AUMENTE A QUALIDADE DO VÍDEO SE NECESSARIO)
+
 ## Tecnologias Utilizadas
 
 ### Backend:

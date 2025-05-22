@@ -28,7 +28,7 @@ Um grande diferencial do projeto é a integração com Spring AI, que permite ao
 
 ## LINK DO VÍDEO
 
-https://youtu.be/XJyyjwjjNSs
+https://youtu.be/0BF4E6JazVA
 
 ## Tecnologias Utilizadas
 

@@ -143,10 +143,7 @@ O projeto implementa monitoramento interno utilizando o **Spring Boot Actuator**
 | `/actuator/env`                  | Mostra todas as variáveis de ambiente da aplicação.                      |
 | `/actuator/env/{nome}`           | Exibe o valor de uma propriedade específica.                             |
 | `/actuator/beans`                | Lista todos os beans do contexto Spring.                                 |
-| `/actuator/loggers`              | Permite alterar níveis de log em tempo de execução.                      |
-| `/actuator/threaddump`           | Exibe o dump atual das threads da JVM.                                   |
 | `/actuator/mappings`             | Lista todos os endpoints da aplicação e seus mapeamentos.                |
-| `/actuator/scheduledtasks`       | Exibe tarefas agendadas via `@Scheduled` (se houver).                    |
 | `/actuator/conditions`           | Mostra os beans ativados/desativados pela auto-configuração.             |
 | `/actuator/configprops`          | Exibe propriedades configuradas agrupadas por classe.                    |
 
@@ -231,28 +228,11 @@ Ao acessar o painel, é possível:
 ### Configuração no `application.properties`
 
 ```properties
-# Identidade da aplicação
-spring.application.name=OdontoPrev
-info.app.name=OdontoPrev
-info.app.description=Sistema de Gerenciamento Odontológico
-info.app.version=1.0.0
-
-# Exposição dos endpoints
-management.endpoints.web.exposure.include=*
-management.endpoint.health.show-details=always
-management.info.env.enabled=true
-management.endpoint.info.enabled=true
-
-### Configuração RabbitMQ (`application.properties`)
-
-spring.rabbitmq.host=localhost
-spring.rabbitmq.port=5672
-spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest
-
-### Configuração do Banco de Dados
+# Nome da aplicação
 
 spring.application.name=Odontoprev
+
+# Configuração do banco Oracle
 
 spring.datasource.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl
 
@@ -262,25 +242,91 @@ spring.datasource.password=120505
 
 spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
 
+
+# JPA / Hibernate
+
 spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
 
 spring.jpa.hibernate.ddl-auto=none
 
 spring.jpa.show-sql=true
 
+spring.jpa.properties.hibernate.format_sql=true
+
+# Inicialização de scripts SQL
+
 spring.sql.init.mode=always
 
-spring.mvc.hiddenmethod.filter.enabled=true
-
-management.endpoints.web.exposure.include=*
+# Thymeleaf
 
 spring.thymeleaf.cache=false
 
-spring.jpa.properties.hibernate.format_sql=true
+# Codificação UTF-8 para web
+
+spring.web.encoding.charset=UTF-8
+
+spring.web.encoding.enabled=true
+
+spring.web.encoding.force=true
+
+# Internacionalização
+
+spring.messages.basename=messages
+
+spring.web.locale=pt_BR
+
+spring.web.locale-resolver=fixed
+
+# Habilita métodos HTTP ocultos
+
+spring.mvc.hiddenmethod.filter.enabled=true
+
+# Logging para queries SQL
 
 logging.level.org.hibernate.SQL=DEBUG
 
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+# Spring Boot Actuator
+
+management.endpoints.web.exposure.include=*
+
+management.endpoint.health.show-details=always
+
+info.app.name=Odontoprev
+
+info.app.description=Sistema de Gerenciamento Odontológico
+
+info.app.version=1.0.0
+
+# informacoes personalizadas em /actuator/info
+
+management.endpoint.info.enabled=true
+
+management.info.env.enabled=true
+
+management.endpoint.info.show-details=always
+
+# Configuração do RabbitMQ
+
+spring.rabbitmq.host=localhost
+
+spring.rabbitmq.port=5672
+
+spring.rabbitmq.username=guest
+
+spring.rabbitmq.password=guest
+
+spring.ai.openai.api-key=${TOKEN}
+
+spring.ai.openai.chat.model=gpt-4
+
+spring.ai.openai.base-url=https://models.inference.ai.azure.com
+
+spring.ai.openai.chat.completions-path=/chat/completions
+
+spring.cloud.function.enabled=false
+
 ```
 
 ### DIAGRAMA (DAR ZOOM PARA VISUALIZAR):

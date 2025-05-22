@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="'Sistema Odontológico - ' + #{msg_perguntar_para_ai}">Sistema Odontológico - IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #cce7ff, #6699cc, #336699);
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+.container {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    color: #2c5787;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+textarea {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background: linear-gradient(120deg, #336699, #6699cc);
+    color: white;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(120deg, #2b527f, #518dc1);
+}
+
+.btn-back {
+    margin-top: 20px;
+    background: linear-gradient(120deg, #999999, #cccccc);
+}
+
+.btn-back:hover {
+    background: linear-gradient(120deg, #777777, #aaaaaa);
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="#{msg_pergunte_ao_sistema_ia}">Pergunte ao Sistema com IA</h2>
+
+    <form method="post" th:action="@{/ai/perguntar}">
+        <textarea name="pergunta" th:placeholder="#{msg_textarea_placeholder}"></textarea>
+        <button type="submit" th:text="#{msg_enviar_pergunta}">Enviar Pergunta</button>
+    </form>
+
+    <form th:action="@{/principal}" method="get">
+        <button type="submit" class="btn-back" th:text="#{msg_voltar_menu_principal}">Voltar ao Menu Principal</button>
+    </form>
+</div>
+</body>
+</html>

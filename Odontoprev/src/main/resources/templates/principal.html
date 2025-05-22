@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{msg_sistema_odontologico}">Sistema Odontológico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #cce7ff, #6699cc, #336699);
+            min-height: 100vh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px; /* espaço para conteúdo em telas pequenas */
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: #2c5787;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu a {
+            padding: 14px;
+            background: linear-gradient(120deg, #336699, #6699cc);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu a:hover {
+            background: linear-gradient(120deg, #2b527f, #518dc1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 13px;
+        }
+
+        .language-switch a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #336699;
+            font-weight: bold;
+        }
+
+        .language-switch a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* RESPONSIVO */
+        @media (max-height: 600px) {
+            .container {
+                padding: 25px 20px;
+            }
+
+            .menu a {
+                font-size: 15px;
+                padding: 12px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="language-switch">
+        <a href="?lang=pt">BR PT</a> |
+        <a href="?lang=en">US EN</a> |
+        <a href="?lang=es">ES ES</a>
+    </div>
+
+    <img src="https://img.freepik.com/vetores-gratis/cor-azul-dos-dentes-da-caligrafia_78370-4809.jpg?w=740" alt="Odontologia" class="logo">
+    <h2 th:text="#{msg_sistema_odontologico}">Sistema Odontológico</h2>
+
+    <div class="menu">
+        <a href="/pacientes"><i class="fa-solid fa-user"></i> <span th:text="#{msg_gerenciar_pacientes_9}">Gerenciar Pacientes</span></a>
+        <a href="/tratamentos"><i class="fa-solid fa-tooth"></i> <span th:text="#{msg_gerenciar_tratamentos_10}">Gerenciar Tratamentos</span></a>
+        <a href="/relatorios/pacientes-tratamentos"><i class="fa-solid fa-file-medical"></i> <span th:text="#{msg_pacientes_e_tratamentos_11}">Pacientes e Tratamentos</span></a>
+        <a href="/relatorios/gastos-pacientes"><i class="fa-solid fa-money-bill-wave"></i> <span th:text="#{msg_gastos_por_paciente_12}">Gastos por Paciente</span></a>
+        <a href="/auditoria"><i class="fa-solid fa-clipboard-list"></i> <span th:text="#{msg_registros_de_auditoria_13}">Registros de Auditoria</span></a>
+        <a href="/ai/form"
+           title="#{msg_resposta_da_ia} - #{msg_pergunte_ao_sistema_ia}">
+            <i class="fa-solid fa-robot"></i> <span th:text="#{msg_perguntar_para_ai}">Perguntar para AI</span>
+        </a>
+
+    </div>
+
+    <footer>
+        © 2025 Sistema Odontológico - <span th:text="#{msg_todos_os_direitos_reservados_14}">Todos os direitos reservados.</span>
+    </footer>
+</div>
+</body>
+</html>

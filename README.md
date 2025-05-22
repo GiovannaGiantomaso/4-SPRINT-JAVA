@@ -7,6 +7,8 @@ O OdontoPrev é um sistema web desenvolvido para facilitar o gerenciamento de cl
 
 Além de oferecer uma plataforma organizada e intuitiva para gestão odontológica, o OdontoPrev também incorpora recursos de segurança, auditoria, mensageria assíncrona com RabbitMQ e geração de relatórios, garantindo maior transparência e confiabilidade nos processos no geral.
 
+Um grande diferencial do projeto é a integração com Spring AI, que permite ao usuário realizar perguntas diretamente dentro do sistema e receber respostas automáticas através de um chat inteligente integrado com IA da OpenAI, promovendo uma experiência interativa e enriquecedora.
+
 ### Principais Funcionalidades
 
 * Autenticação e autorização via Spring Security
@@ -16,6 +18,7 @@ Além de oferecer uma plataforma organizada e intuitiva para gestão odontológi
 * Suporte a internacionalização (i18n) com mensagens em Português, Inglês e Espanhol
 * Mensageria assíncrona com RabbitMQ (para Pacientes e Tratamentos)
 * Banco de Dados Oracle com Procedures e Triggers para segurança e auditoria
+* Chat com IA integrado com Spring AI, permitindo perguntas/respostas no sistema
 
 ## Equipe de Desenvolvimento
 
@@ -37,6 +40,7 @@ https://youtu.be/XJyyjwjjNSs
 * Spring Data JPA
 * Spring Boot Actuator
 * RabbitMQ
+* Spring AI
 
 ### Frontend:
 
@@ -87,6 +91,9 @@ Login: http://localhost:8080/login
 Registrar:http://localhost:8080/register
 
 Página principal: http://localhost:8080/principal
+
+### Perguntar para AI
+http://localhost:8080/ai/form
 
 ### Gerenciamento de Pacientes
 
